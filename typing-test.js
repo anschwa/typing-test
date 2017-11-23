@@ -103,6 +103,7 @@ function addWords() {
     // clear existing word-section
     let wordSection = $("#word-section")[0];
     wordSection.innerHTML = "";
+    $("#typebox")[0].value = "";
 
     for (let i = 350; i > 0; i--) {
         let words = shuffle(wordList);
@@ -283,6 +284,6 @@ function typingTest(e) {
 }
 
 function restartTest() {
+    $("#typebox")[0].value = "";
     location.reload();
-    // TODO: proper reset
 }
