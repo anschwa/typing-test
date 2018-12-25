@@ -263,7 +263,7 @@ function showSubmitName() {
 
   // show input name form with submit
   nameForm.id = "nameform"
-  nameForm.innerHTML = "<input id='namebox' name='namebox' type='text' tabindex='1' value='' placeholder='Your name'><input type='submit' value='Submit'>"
+  nameForm.innerHTML = "<input id='namebox' name='namebox' type='text' tabindex='1' value='' placeholder='Your name'><input id='submit-name' type='submit' value='Submit'>"
   typeSection.prepend(nameForm)
 
   nameForm.addEventListener("submit", (e) => findUser(e))
