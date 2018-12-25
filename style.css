@@ -128,6 +128,10 @@ section {
   #results #results-stats {
     font-size: 0.6em; }
 
+#leaderboard {
+  color: white;
+}
+
 footer {
   margin-top: 1em;
   text-align: center;
