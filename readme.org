@@ -1,19 +1,23 @@
-#+TITLE: ES6 Typing Test
-#+AUTHOR: Adam Schwartz
-#+DATE: June 24, 2015
+#+TITLE: Code Code Revolution
+#+AUTHOR: Rob Chen
+#+DATE: December 25, 2018
 
 * Description
+Test how fast you can code with common programming keywords.
+Backend supported by [[https://github.com/robertchen234/CodeCodeRevolution-backend][Ruby on Rails]]
+
 A simple HTML5 typing test webapp written with [[http://www.ecma-international.org/ecma-262/6.0/][ECMAScript 2015]],
 compiled with [[https://babeljs.io/][Babel]], styled with [[http://sass-lang.com/][Sass]], and developed using [[https://github.com/lepture/python-livereload][Python
 LiveReload]].
 
-Inspired by [[http://10fastfingers.com/typing-test/english][10fastfingers]].
+Inspired by
+[[https://github.com/daschwa/typing-test][Adam Schwartz]] [[http://10fastfingers.com/typing-test/english][10fastfingers]].
 
 * Screenshots
 [[file:/screenshots/test.png]]
 [[file:/screenshots/results.png]]
 * Developing
-Execute 
+Execute
 #+BEGIN_SRC sh
   python server.py
 #+END_SRC
