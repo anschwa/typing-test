@@ -282,18 +282,20 @@ function findUser(e) {
 
 function loopUsers(users) {
   let nameBox = document.querySelector("#namebox")
+  let names = []
   users.forEach(user => {
     if (nameBox.value.toUpperCase() === user.name.toUpperCase()) {
       postScore(user)
+      names.push(user.name.toUpperCase())
     }
   })
-  checkLastUser(users)
+  checkNames(users, names)
   showLeaderBoard()
 }
 
-function checkLastUser(users) {
+function checkNames(users, names) {
   let nameBox = document.querySelector("#namebox")
-  if (nameBox.value.toUpperCase() !== users[users.length-1].name.toUpperCase()) {
+  if (!names.includes(nameBox.value.toUpperCase())){
     postUser()
   }
 }
