@@ -13,10 +13,17 @@ if (navigator.userAgent.match(/firefox/i)) {
 
 /////////////////////////////////////////
 
-// Sorted list of the 500 most common English words.
-let wordList = ["the", "name", "of", "very", "to", "through", "and", "just", "a", "form", "in", "much", "is", "great", "it", "think", "you", "say", "that", "help", "he", "low", "was", "line", "for", "before", "on", "turn", "are", "cause", "with", "same", "as", "mean", "I", "differ", "his", "move", "they", "right", "be", "boy", "at", "old", "one", "too", "have", "does", "this", "tell", "from", "sentence", "or", "set", "had", "three", "by", "want", "hot", "air", "but", "well", "some", "also", "what", "play", "there", "small", "we", "end", "can", "put", "out", "home", "other", "read", "were", "hand", "all", "port", "your", "large", "when", "spell", "up", "add", "use", "even", "word", "land", "how", "here", "said", "must", "an", "big", "each", "high", "she", "such", "which", "follow", "do", "act", "their", "why", "time", "ask", "if", "men", "will", "change", "way", "went", "about", "light", "many", "kind", "then", "off", "them", "need", "would", "house", "write", "picture", "like", "try", "so", "us", "these", "again", "her", "animal", "long", "point", "make", "mother", "thing", "world", "see", "near", "him", "build", "two", "self", "has", "earth", "look", "father", "more", "head", "day", "stand", "could", "own", "go", "page", "come", "should", "did", "country", "my", "found", "sound", "answer", "no", "school", "most", "grow", "number", "study", "who", "still", "over", "learn", "know", "plant", "water", "cover", "than", "food", "call", "sun", "first", "four", "people", "thought", "may", "let", "down", "keep", "side", "eye", "been", "never", "now", "last", "find", "door", "any", "between", "new", "city", "work", "tree", "part", "cross", "take", "since", "get", "hard", "place", "start", "made", "might", "live", "story", "where", "saw", "after", "far", "back", "sea", "little", "draw", "only", "left", "round", "late", "man", "run", "year", "don't", "came", "while", "show", "press", "every", "close", "good", "night", "me", "real", "give", "life", "our", "few", "under", "stop", "open", "ten", "seem", "simple", "together", "several", "next", "vowel", "white", "toward", "children", "war", "begin", "lay", "got", "against", "walk", "pattern", "example", "slow", "ease", "center", "paper", "love", "often", "person", "always", "money", "music", "serve", "those", "appear", "both", "road", "mark", "map", "book", "science", "letter", "rule", "until", "govern", "mile", "pull", "river", "cold", "car", "notice", "feet", "voice", "care", "fall", "second", "power", "group", "town", "carry", "fine", "took", "certain", "rain", "fly", "eat", "unit", "room", "lead", "friend", "cry", "began", "dark", "idea", "machine", "fish", "note", "mountain", "wait", "north", "plan", "once", "figure", "base", "star", "hear", "box", "horse", "noun", "cut", "field", "sure", "rest", "watch", "correct", "color", "able", "face", "pound", "wood", "done", "main", "beauty", "enough", "drive", "plain", "stood", "girl", "contain", "usual", "front", "young", "teach", "ready", "week", "above", "final", "ever", "gave", "red", "green", "list", "oh", "though", "quick", "feel", "develop", "talk", "sleep", "bird", "warm", "soon", "free", "body", "minute", "dog", "strong", "family", "special", "direct", "mind", "pose", "behind", "leave", "clear", "song", "tail", "measure", "produce", "state", "fact", "product", "street", "black", "inch", "short", "lot", "numeral", "nothing", "class", "course", "wind", "stay", "question", "wheel", "happen", "full", "complete", "force", "ship", "blue", "area", "object", "half", "decide", "rock", "surface", "order", "deep", "fire", "moon", "south", "island", "problem", "foot", "piece", "yet", "told", "busy", "knew", "test", "pass", "record", "farm", "boat", "top", "common", "whole", "gold", "king", "possible", "size", "plane", "heard", "age", "best", "dry", "hour", "wonder", "better", "laugh", "true", "thousand", "during", "ago", "hundred", "ran", "am", "check", "remember", "game", "step", "shape", "early", "yes", "hold", "hot", "west", "miss", "ground", "brought", "interest", "heat", "reach", "snow", "fast", "bed", "five", "bring", "sing", "sit", "listen", "perhaps", "six", "fill", "table", "east", "travel", "weight", "less", "language", "morning", "among"];
+// Sorted list of the 500 common programming words.
+let wordList = ["if", "else", "elsif", "each", "forEach", "map", "collect", "select", "do", "def", "end", "function", "class", "module", "html", "fetch", "css", "javascript", "js", "rails", "rake", "db:migrate", "db:seed", "generate", "find", "findBy", "c++", "python", "shotgun", "let", "const", "addEventListener", "db:rollback", "querySelector", "querySelectorAll", "methods", "config", "Gemfile", "schema", "api", "controller", "models", "serializer", "cookies", "session[:id]", "params[:id]", "embed", "while", "until", "script", "h1", "h2", "h3", "img", "src=", "a href", "views", "routes", "index", "show", "update", "edit", "delete", "destroy", "new", "create", "before_action", "@user", "User.create", "Tweet.save", "Tweet.new", "@tweet", "find_user", "render", "status", "{key:value}", "[array]", "string", "integer", "boolean", "true", "false", "null", "nil", "case", "when", "switch", "params.permit", "private", "errors", "div", "body", "ul", "li", "ol", "span", "p", "br", "#id", ".class", "selectElementById", "selectElementByClass", "text-align", "font-size", "background-color", "color", "a:hover", "width", "height", "border", "position", "absolute", "fixed", "relative", "overflow", "display", "none", "hidden", "style", "margin", "padding", "has_many", "belongs_to", ":id", ":name", "attributes", "Active:Model", "inherits", "ApplicationRecord", "ActiveRecord::Base", "self", "this", "validates", "uniqueness", "length", "User.first", "Tweet.last", "i++", "Tweet.all", "t.string", "t.integer", "create_table", "change", "innerHTML", "innerText", "add", "remove", "value", "key", "hash", "seeds", "install", "gem", "debugger", "console.log", "binding.pry", "typeof", "default", "event", "whitelist", "blacklist", "meta", "head", "iframe", "style.css", "index.html", "index.js", "index.erb", "show.erb", "edit.erb", "git", "branch", "checkout", "resources", "charset", "label", "input", "||", "%", "&&", "localhost:3000", "http://", "https://", ".com", "cd", "touch", "mkdir", "bundle", "exec", "master", "commit", "-m", "push", "pull", "merge", "name=", "type=", "title", "authentication", "authorization", ".then", "dataset.id", "res.json()", "response", "res", "e.target", "event.target", "DOMContentLoaded", "click", "hover", "keyup", "keydown", "className", "button", "parentNode", "parentElement", "document", "data", "append", "prepend", "content", "createElement", "method:", "POST", "UPDATE", "DELETE", "GET", "Content-Type", "application/json", "headers:", "body:", "JSON.stringify", "e.preventDefault()", "only:", "except:", ":products", ":comments", ":seller", "@product", "@comment", "@seller", "form_for", "form_tag", "|item|", "action:", "dependent:", ":destroy", "through:", "join", "table", "open", "force:", ":cascade", "name:", "require", "sort", ":adapter", ":database", "sqlite", "sql", "postgresql", "json-server", "Rack::Response", "path.match", "resp.status", "resp.write", "resp.finish", "flash[:error]", "errors.full_messages", "redirect_to", "_form", "f.label", "f.text_field", "f.number_field", "f.collection_select", "f.submit", "form_tag", "label_tag", "text_field_tag", ":search", "submit_tag", "button_to", "new_user_path", "users_path", "edit_user_path", "style=", "color:red", "initialize", "attr_accessor", "attr_writer", "attr_reader", "scrolling", "(title)", "@@artists", "self.count", "self.all", "self.all.clear", "@@all", "downcase", "upcase", "gsub", "add_song", "require_relative", "student.rb", "teacher.rb", "link", "href", "options", "prototype", "jQuery", "elem", "node", "on", "be", "callback", "obj", "undefined", "NaN", "from", "not", "or", "and", "call", "args", "exports", "state", "set", "context", "scope", "arguments", "window", "test", "val", "fn", "start", "path", "top", "bottom", "left", "right", "Math", "random", "url", "offset", "child", "parent", "settings", "source", "code", "property", "line", "replace", "extend", "done", "instance", "container", "row", "column", "date", "time", "log", "range", "bind", "trigger", "catch", "max", "min", "filter", "list", "try", "token", "constructor", "Number", "promise", "indexOf", "slice", "assert", "dom", "base", "format", "disabled", "check", "editor", "any", "selected", "angular", "direct", "split", "after", "init", "root", "change", "process", "page", "load", "reload", "equal", "==", "!=", "===", "frameborder", "autoplay", "template", "tag", "version", "global", "variable", "removeClass", "menu", "point", "attribute", "browser", "location", "full", "complete", "define", "component", "empty", "success", "group", "output", "clone", "pwd", "resolve", "image", "close", "setTimeout", "interval", "setInterval", "hasOwnProperty", "queue", "parse", "parseInt", "static", "ajax", "toLowerCase", "toUpperCase", "handler", "pass", "continue", "scale", "speed", "opacity", "isArray", "import", "export", "fail", "block", "animation", "canvas", "visible", "stop", "off", "isFunction", "lang", "compile", "concat", "invoke", "iterate", "loop", "nested", "object-oriented", "parameter", "parenthesis", "bracket", "syntax", "algorithm", "dump", "interpreter", "recursion", "sandbox", "GUI", "bootstrap", "IDE", "tab", "indent", "package", "prefix", "axis", "info", "listener", "plugin", "original", "deferred", "github", "public", "foo", "bar", "scroll", "delegation", "regex", "react", "month", "year", "cursor", "valid", "unless", "reject", "accept", "helper"];
 
 //////////////////////////////////////////
+
+// /////////////////////////////////////////
+//
+// // Sorted list of the 500 most common English words.
+// let wordList = ["the", "name", "of", "very", "to", "through", "and", "just", "a", "form", "in", "much", "is", "great", "it", "think", "you", "say", "that", "help", "he", "low", "was", "line", "for", "before", "on", "turn", "are", "cause", "with", "same", "as", "mean", "I", "differ", "his", "move", "they", "right", "be", "boy", "at", "old", "one", "too", "have", "does", "this", "tell", "from", "sentence", "or", "set", "had", "three", "by", "want", "hot", "air", "but", "well", "some", "also", "what", "play", "there", "small", "we", "end", "can", "put", "out", "home", "other", "read", "were", "hand", "all", "port", "your", "large", "when", "spell", "up", "add", "use", "even", "word", "land", "how", "here", "said", "must", "an", "big", "each", "high", "she", "such", "which", "follow", "do", "act", "their", "why", "time", "ask", "if", "men", "will", "change", "way", "went", "about", "light", "many", "kind", "then", "off", "them", "need", "would", "house", "write", "picture", "like", "try", "so", "us", "these", "again", "her", "animal", "long", "point", "make", "mother", "thing", "world", "see", "near", "him", "build", "two", "self", "has", "earth", "look", "father", "more", "head", "day", "stand", "could", "own", "go", "page", "come", "should", "did", "country", "my", "found", "sound", "answer", "no", "school", "most", "grow", "number", "study", "who", "still", "over", "learn", "know", "plant", "water", "cover", "than", "food", "call", "sun", "first", "four", "people", "thought", "may", "let", "down", "keep", "side", "eye", "been", "never", "now", "last", "find", "door", "any", "between", "new", "city", "work", "tree", "part", "cross", "take", "since", "get", "hard", "place", "start", "made", "might", "live", "story", "where", "saw", "after", "far", "back", "sea", "little", "draw", "only", "left", "round", "late", "man", "run", "year", "don't", "came", "while", "show", "press", "every", "close", "good", "night", "me", "real", "give", "life", "our", "few", "under", "stop", "open", "ten", "seem", "simple", "together", "several", "next", "vowel", "white", "toward", "children", "war", "begin", "lay", "got", "against", "walk", "pattern", "example", "slow", "ease", "center", "paper", "love", "often", "person", "always", "money", "music", "serve", "those", "appear", "both", "road", "mark", "map", "book", "science", "letter", "rule", "until", "govern", "mile", "pull", "river", "cold", "car", "notice", "feet", "voice", "care", "fall", "second", "power", "group", "town", "carry", "fine", "took", "certain", "rain", "fly", "eat", "unit", "room", "lead", "friend", "cry", "began", "dark", "idea", "machine", "fish", "note", "mountain", "wait", "north", "plan", "once", "figure", "base", "star", "hear", "box", "horse", "noun", "cut", "field", "sure", "rest", "watch", "correct", "color", "able", "face", "pound", "wood", "done", "main", "beauty", "enough", "drive", "plain", "stood", "girl", "contain", "usual", "front", "young", "teach", "ready", "week", "above", "final", "ever", "gave", "red", "green", "list", "oh", "though", "quick", "feel", "develop", "talk", "sleep", "bird", "warm", "soon", "free", "body", "minute", "dog", "strong", "family", "special", "direct", "mind", "pose", "behind", "leave", "clear", "song", "tail", "measure", "produce", "state", "fact", "product", "street", "black", "inch", "short", "lot", "numeral", "nothing", "class", "course", "wind", "stay", "question", "wheel", "happen", "full", "complete", "force", "ship", "blue", "area", "object", "half", "decide", "rock", "surface", "order", "deep", "fire", "moon", "south", "island", "problem", "foot", "piece", "yet", "told", "busy", "knew", "test", "pass", "record", "farm", "boat", "top", "common", "whole", "gold", "king", "possible", "size", "plane", "heard", "age", "best", "dry", "hour", "wonder", "better", "laugh", "true", "thousand", "during", "ago", "hundred", "ran", "am", "check", "remember", "game", "step", "shape", "early", "yes", "hold", "hot", "west", "miss", "ground", "brought", "interest", "heat", "reach", "snow", "fast", "bed", "five", "bring", "sing", "sit", "listen", "perhaps", "six", "fill", "table", "east", "travel", "weight", "less", "language", "morning", "among"];
+//
+// //////////////////////////////////////////
 
 // Knuth-Fisher-Yates Shuffle
 // http://bost.ocks.org/mike/shuffle/
@@ -165,6 +172,8 @@ function calculateWPM(data) {
     let min = seconds / 60;
     let wpm = Math.ceil(typed / 5 - incorrect / min);
     let accuracy = Math.ceil(correct / total * 100);
+    let score = wpm * accuracy * 100;
+    let scoreComma = (score).toLocaleString('en');
 
     if (wpm < 0) {
         wpm = 0;
@@ -182,7 +191,11 @@ function calculateWPM(data) {
         </li>
         </ul>`;
 
+    $("#ccr")[0].innerText = `Score: ${scoreComma}`;
     $("#word-section")[0].innerHTML = results;
+
+    // start fetch
+    showSubmitName()
 
     // color code accuracy
     let wpmClass = $("li:nth-child(2) .wpm-value")[0].classList;
@@ -234,3 +247,63 @@ function restartTest() {
     location.reload();
 }
 
+/////////////////////////////////
+///////// Let's fetch ///////////
+/////////////////////////////////
+
+function showSubmitName() {
+  let typeSection = document.querySelector("#type-section")
+  let typeBox = document.querySelector("#typebox")
+  let timer = document.querySelector("#timer")
+  let nameForm = document.createElement("FORM")
+
+  typeBox.style.display = "none"
+  timer.style.display = "none"
+  nameForm.id = "nameform"
+  nameForm.innerHTML = "<input id='namebox' name='namebox' type='text' tabindex='1' value='' placeholder='Your name'><input type='submit' value='Submit'>"
+  typeSection.prepend(nameForm)
+
+  nameForm.addEventListener("submit", (e) => findUser(e))
+}
+
+function findUser(e) {
+  e.preventDefault()
+  let nameBox = document.querySelector("#namebox")
+
+  fetch("http://localhost:3000/api/v1/users")
+  .then(data => data.json())
+  .then(users => users.forEach(user => {
+    if (nameBox.value.toUpperCase === user.name.toUpperCase) {
+      postScore(user)
+    }
+  }))
+}
+
+function postScore(user) {
+  let userId = user.id
+  let wpm = parseInt(document.querySelector(".wpm-value").innerText)
+  let accuracy = parseInt(document.querySelector(".correct-word-c").innerText)
+  let score = wpm * accuracy * 100
+  let total_words = parseInt(document.querySelectorAll("#results-stats span")[0].innerText)
+  let correct_words = parseInt(document.querySelectorAll("#results-stats span")[1].innerText)
+  let incorrect_words = parseInt(document.querySelectorAll("#results-stats span")[2].innerText)
+  let characters_typed = parseInt(document.querySelectorAll("#results-stats span")[3].innerText)
+
+  fetch("http://localhost:3000/api/v1/scores", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      user_id: userId,
+      score: score,
+      wpm: wpm,
+      accuracy: accuracy,
+      total_words: total_words,
+      correct_words: correct_words,
+      incorrect_words: incorrect_words,
+      characters_typed: characters_typed
+    })
+  }).then(console.log("posted to database"))
+}

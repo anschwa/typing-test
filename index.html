@@ -2,31 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8"/>
-    <title>ES6 Typing Test</title>
+    <title>Code Code Revolution</title>
     <link href="style.css" rel="stylesheet"/>
     <script src="typing-test-compiled.js" defer></script>
   </head>
   <body onload="addWords()">
-    <header>
-      <h3>ES6 Typing Test</h3>
-    </header>
+    <div class="fullscreen-bg">
+      <iframe src="https://www.youtube.com/embed/LNeEqv2B_Is?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=LNeEqv2B_Is" frameborder="0" width="100%" height="240" position="relative" class="fullscreen-bg__video"></iframe>
+      <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/549884622&color=%23ff5500&auto_play=true&loop=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe>
+    </div>
+    <div id="game">
+      <header>
+        <h1 id="ccr" style="color:white">Code Code Revolution</h1>
+      </header>
 
-    <section id="word-section">
-      <div class="waiting"">⌛</div>
-    </section>
+      <section id="word-section">
+        <div class="waiting">⌛</div>
+      </section>
 
-    <section id="type-section">
-      <input id="typebox" name="typebox" type="text" tabindex="1" autofocus onkeyup="typingTest(event)"/>
-      <div id="timer" class="type-btn"><span>1:00</span></div>
-      <button id="restart" class="type-btn" tabindex="2" onclick="restartTest()">
-        <span id="restart-symbol">↻</span>
-      </button>
-    </section>
+      <section id="type-section">
+        <input id="typebox" name="typebox" type="text" tabindex="1" autofocus onkeyup="typingTest(event)" />
+        <div id="timer" class="type-btn"><span>1:00</span></div>
+        <button id="restart" class="type-btn" tabindex="2" onclick="restartTest()">
+          <span id="restart-symbol">↻</span>
+        </button>
+      </section>
 
-    <footer>
-      © <script>document.write(new Date().getFullYear())</script>
-      <a href="http://adamschwartz.io">Adam Schwartz</a> |
-      <a href="https://github.com/daschwa/typing-test">View on GitHub</a>
-    </footer>
+      <footer>
+        <p><a href="https://github.com/robertchen234">Rob Chen</a> | Code Code Revolution</p>
+        <p>Powered By</p>
+        © <script>document.write(new Date().getFullYear())</script>
+        <a href="http://adamschwartz.io">Adam Schwartz</a> |
+        <a href="https://github.com/daschwa/typing-test">View on GitHub</a>
+      </footer>
+    </div>
   </body>
 </html>
