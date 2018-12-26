@@ -299,17 +299,6 @@ var findUser = (function() {
   }
 })()
 
-// function findUser(e) {
-//   e.preventDefault()
-//
-//   // GET users and iterate
-//     // if user exists, post score to user
-//     // else create user, then post score to user
-//   fetch("http://localhost:3000/api/v1/users")
-//   .then(data => data.json())
-//   .then(users => iterateUsers(users))
-// }
-
 function iterateUsers(users) {
   let nameBox = document.querySelector("#namebox")
   let names = []
@@ -355,6 +344,9 @@ function postScore(user) {
   let correct_words = parseInt(document.querySelectorAll("#results-stats span")[1].innerText)
   let incorrect_words = parseInt(document.querySelectorAll("#results-stats span")[2].innerText)
   let characters_typed = parseInt(document.querySelectorAll("#results-stats span")[3].innerText)
+
+  let ccr = document.querySelector("#ccr")
+  ccr.dataset.id = userId
 
   fetch("http://localhost:3000/api/v1/scores", {
     method: "POST",
@@ -495,16 +487,27 @@ function getComments() {
 
 function loadComments(comments) {
   const typeSection = document.querySelector("#type-section")
-  const commentUl = document.createElement("UL")
-  commentUl.id = "comment-section"
-  typeSection.append(commentUl)
 
-  comments.forEach(comment => {
-    let commentLi = document.createElement("LI")
-    commentLi.className = "comment"
-    commentLi.innerHTML = `<strong><span>${comment.user_id}</span></strong>: ${comment.content}`
-    commentUl.append(commentLi)
-  })
+  const commentSection = document.createElement("DIV")
+  commentSection.id = "comment-section"
+  typeSection.append(commentSection)
+
+  const commentUl = document.createElement("UL")
+  commentUl.id = "comment-ul"
+  commentSection.append(commentUl)
+
+  comments.forEach(comment => appendComment(comment))
+
+  showSubmitComment()
+}
+
+function appendComment(comment) {
+  let commentUl = document.querySelector("#comment-ul")
+
+  let commentLi = document.createElement("LI")
+  commentLi.className = "comment"
+  commentLi.innerHTML = `<strong><span id=${comment.user_id}>${comment.user_id}</span></strong>: ${comment.content}`
+  commentUl.append(commentLi)
 
   getUsersForNames()
 }
@@ -525,4 +528,37 @@ function matchIdsWithNames(users) {
       }
     })
   })
+}
+
+function showSubmitComment() {
+  const commentSection = document.querySelector("#comment-section")
+  const commentForm = document.createElement("FORM")
+
+  commentForm.id = "commentform"
+  commentForm.innerHTML = "<input id='commentbox' name='commentbox' type='text' tabindex='1' value='' placeholder='Your comment'><input id='submit-comment' type='submit' value='Submit'>"
+  commentSection.append(commentForm)
+
+  commentForm.addEventListener("submit", (e) => postComment(e))
+}
+
+function postComment(e) {
+  e.preventDefault()
+
+  let userId = parseInt(document.querySelector("#ccr").dataset.id)
+  let content = document.querySelector("#commentbox").value
+
+  fetch("http://localhost:3000/api/v1/comments", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      user_id: userId,
+      content: content
+    })
+  }).then(console.log("posted to comments database"))
+  .then(data => data.json())
+  .then(comment => appendComment(comment))
+  .then(document.querySelector("#commentform").reset())
 }
