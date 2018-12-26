@@ -3,15 +3,15 @@
 #+DATE: December 25, 2018
 
 * Description
-Test how fast you can code with common programming keywords.
-Backend supported by [[https://github.com/robertchen234/CodeCodeRevolution-backend][Ruby on Rails]]
+Test how fast you can code with common programming keywords and compete with other users.
+Backend built with [[https://github.com/robertchen234/CodeCodeRevolution-backend][Ruby on Rails]] with [[https://www.postgresql.org/][Postgres]] database.
 
 A simple HTML5 typing test webapp written with [[http://www.ecma-international.org/ecma-262/6.0/][ECMAScript 2015]],
 compiled with [[https://babeljs.io/][Babel]], styled with [[http://sass-lang.com/][Sass]], and developed using [[https://github.com/lepture/python-livereload][Python
 LiveReload]].
 
 Inspired by
-[[https://github.com/daschwa/typing-test][Adam Schwartz]] [[http://10fastfingers.com/typing-test/english][10fastfingers]].
+[[https://github.com/daschwa/typing-test][Adam Schwartz]] and  [[http://10fastfingers.com/typing-test/english][10fastfingers]].
 
 * Screenshots
 [[file:/screenshots/test.png]]

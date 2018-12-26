@@ -136,7 +136,11 @@ section {
 
 #leaderboard {
   color: white;
-}
+  text-align: left;
+  padding-right: 25px; }
+  #leaderboard td {
+    padding-left: 25px;
+  }
 
 footer {
   margin-top: 1em;

@@ -290,7 +290,6 @@ function loopUsers(users) {
     }
   })
   checkNames(users, names)
-  showLeaderBoard()
 }
 
 function checkNames(users, names) {
@@ -344,38 +343,134 @@ function postScore(user) {
       characters_typed: characters_typed
     })
   }).then(console.log("posted to scores database"))
+  .then(getScores())
 }
 
-function showLeaderBoard() {
-  const game = document.querySelector("#game")
-  const header = document.querySelector("#game header")
+function getScores() {
+  fetch("http://localhost:3000/api/v1/scores")
+  .then(data => data.json())
+  .then(scores => topFiveScores(scores))
+}
+
+function topFiveScores(scores) {
+  let scoresArray = []
+  scores.forEach(score => {
+    scoresArray.push(score.score)
+  })
+
+  scoresArray.sort((a, b) => b - a)
+
+  let topFiveScores = scoresArray.slice(0,5)
+
+  showLeaderBoard(topFiveScores)
+}
+
+function showLeaderBoard(topFiveScores) {
+  const ccr = document.querySelector("#ccr")
+  const typeSection = document.querySelector("#type-section")
   const wordSection = document.querySelector("#word-section")
   const nameForm = document.querySelector("#nameform")
 
-  header.style.display = "none"
+  ccr.innerText = "Leaderboard"
   wordSection.style.display = "none"
   nameForm.style.display = "none"
 
+  let firstScore = topFiveScores[0]
+  let secondScore = topFiveScores[1]
+  let thirdScore = topFiveScores[2]
+  let fourthScore = topFiveScores[3]
+  let fifthScore = topFiveScores[4]
+
   let leaderBoard = document.createElement("TABLE")
-  let row = leaderBoard.insertRow(0)
-  let cell = row.insertCell(0)
-  let scoreHashes = []
-
   leaderBoard.id = "leaderboard"
+  leaderBoard.innerHTML = `
+  <tr>
+    <td id="first"></td>
+    <td>${firstScore}</td>
+  </tr>
+  <tr>
+    <td id="second"></td>
+    <td>${secondScore}</td>
+  </tr>
+  <tr>
+    <td id="third"></td>
+    <td>${thirdScore}</td>
+  </tr>
+  <tr>
+    <td id="fourth"></td>
+    <td>${fourthScore}</td>
+  </tr>
+  <tr>
+    <td id="fifth"></td>
+    <td>${fifthScore}</td>
+  </tr>`
 
-  game.prepend(leaderBoard)
+  typeSection.prepend(leaderBoard)
 
-  // GET users and scores
+  getUsers(topFiveScores)
+}
+
+function getUsers(topFiveScores) {
   fetch("http://localhost:3000/api/v1/users")
   .then(data => data.json())
-  .then(users => users.forEach(user => {
-    user.scores.forEach(score => {
-      scoreHashes[user.name] = score.score
-    })
-  }))
-.then(console.log(scoreHashes))
-
-  cell.innerHTML = 123
-  cell = row.insertCell(1)
-  cell.innerHTML = 456
+  .then(users => topFiveUsers(users, topFiveScores))
 }
+
+function topFiveUsers(users,topFiveScores) {
+  let usersArray = []
+
+  topFiveScores.forEach(score => {
+    users.forEach(user => {
+      user.scores.forEach(s => {
+        if (s.score === score) {
+          usersArray.push(user.name)
+        }
+      })
+    })
+  })
+
+  let topFiveUsers = usersArray.slice(0,5)
+
+  showOnLeaderboard(topFiveUsers)
+}
+
+function showOnLeaderboard(topFiveUsers) {
+  let firstTd = document.querySelector("#first")
+  let secondTd = document.querySelector("#second")
+  let thirdTd = document.querySelector("#third")
+  let fourthTd = document.querySelector("#fourth")
+  let fifthTd = document.querySelector("#fifth")
+
+  let firstPlace = topFiveUsers[0]
+  let secondPlace = topFiveUsers[1]
+  let thirdPlace = topFiveUsers[2]
+  let fourthPlace = topFiveUsers[3]
+  let fifthPlace = topFiveUsers[4]
+
+  firstTd.innerText = firstPlace
+  secondTd.innerText = secondPlace
+  thirdTd.innerText = thirdPlace
+  fourthTd.innerText = fourthPlace
+  fifthTd.innerText = fifthPlace
+}
+
+//
+// function topFiveUserIds(scores, topFiveScores) {
+//   let topFiveUserIds = []
+//
+//   topFiveScores.forEach(score => {
+//     scores.forEach(s => {
+//       if (score === s.score) {
+//         topFiveUserIds.push(s.user_id)
+//       }
+//     })
+//   })
+//
+//   console.log(topFiveUserIds)
+
+  // scores.forEach(score => {
+  //   if (score.score === topFiveScores[0]) {
+  //     topFiveUserIds.push(score.user_id)
+  //   }
+  // })
+// }
