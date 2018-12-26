@@ -14,7 +14,7 @@ if (navigator.userAgent.match(/firefox/i)) {
 /////////////////////////////////////////
 
 // Sorted list of the 500 common programming words.
-let wordList = ["if", "else", "elsif", "each", "forEach", "map", "collect", "select", "do", "def", "end", "function", "class", "module", "html", "fetch", "css", "javascript", "js", "rails", "rake", "db:migrate", "db:seed", "generate", "find", "findBy", "c++", "python", "shotgun", "let", "const", "addEventListener", "db:rollback", "querySelector", "querySelectorAll", "methods", "config", "Gemfile", "schema", "api", "controller", "models", "serializer", "cookies", "session[:id]", "params[:id]", "embed", "while", "until", "script", "h1", "h2", "h3", "img", "src=", "href", "views", "routes", "index", "show", "update", "edit", "delete", "destroy", "new", "create", "before_action", "@user", "User.create", "Tweet.save", "Tweet.new", "@tweet", "find_user", "render", "status", "{key:value}", "[array]", "string", "integer", "boolean", "true", "false", "null", "nil", "case", "when", "switch", "params.permit", "private", "errors", "div", "body", "ul", "li", "ol", "span", "p", "br", "#id", ".class", "selectElementById", "selectElementByClass", "text-align", "font-size", "background-color", "color", "a:hover", "width", "height", "border", "position", "absolute", "fixed", "relative", "overflow", "display", "none", "hidden", "style", "margin", "padding", "has_many", "belongs_to", ":id", ":name", "attributes", "Active:Model", "inherits", "ApplicationRecord", "ActiveRecord::Base", "self", "this", "validates", "uniqueness", "length", "User.first", "Tweet.last", "i++", "Tweet.all", "t.string", "t.integer", "create_table", "change", "innerHTML", "innerText", "add", "remove", "value", "key", "hash", "seeds", "install", "gem", "debugger", "console.log", "binding.pry", "typeof", "default", "event", "whitelist", "blacklist", "meta", "head", "iframe", "style.css", "index.html", "index.js", "index.erb", "show.erb", "edit.erb", "git", "branch", "checkout", "resources", "charset", "label", "input", "reset()", "%", "keypress", "localhost:3000", "http://", "https://", ".com", "cd", "touch", "mkdir", "bundle", "exec", "master", "commit", "-m", "push", "pull", "merge", "name=", "type=", "title", "authentication", "authorization", ".then", "dataset.id", "res.json()", "response", "res", "e.target", "event.target", "DOMContentLoaded", "click", "hover", "keyup", "keydown", "className", "button", "parentNode", "parentElement", "document", "data", "append", "prepend", "content", "createElement", "method:", "POST", "UPDATE", "DELETE", "GET", "Content-Type", "application/json", "headers:", "body:", "JSON.stringify", "e.preventDefault()", "only:", "except:", ":products", ":comments", ":seller", "@product", "@comment", "@seller", "form_for", "form_tag", "|item|", "action:", "dependent:", ":destroy", "through:", "join", "table", "open", "force:", ":cascade", "name:", "require", "sort", ":adapter", ":database", "sqlite", "sql", "postgresql", "json-server", "Rack::Response", "path.match", "resp.status", "resp.write", "resp.finish", "flash[:error]", "errors.full_messages", "redirect_to", "_form", "f.label", "f.text_field", "f.number_field", "f.collection_select", "f.submit", "form_tag", "label_tag", "text_field_tag", ":search", "submit_tag", "button_to", "new_user_path", "users_path", "edit_user_path", "style=", "color:red", "initialize", "attr_accessor", "attr_writer", "attr_reader", "scrolling", "(title)", "@@artists", "self.count", "self.all", "self.all.clear", "@@all", "downcase", "upcase", "gsub", "add_song", "require_relative", "student.rb", "teacher.rb", "link", "href", "options", "prototype", "jQuery", "elem", "node", "on", "be", "callback", "obj", "undefined", "NaN", "from", "not", "or", "and", "call", "args", "exports", "state", "set", "context", "scope", "arguments", "window", "test", "val", "fn", "start", "path", "top", "bottom", "left", "right", "Math", "random", "url", "offset", "child", "parent", "settings", "source", "code", "property", "line", "replace", "extend", "done", "instance", "container", "row", "column", "date", "time", "log", "range", "bind", "trigger", "catch", "max", "min", "filter", "list", "try", "token", "constructor", "Number", "promise", "indexOf", "slice", "assert", "dom", "base", "format", "disabled", "check", "editor", "any", "selected", "angular", "direct", "split", "after", "init", "root", "change", "process", "page", "load", "reload()", "equal", "==", "!=", "===", "frameborder", "autoplay", "template", "tag", "version", "global", "variable", "removeClass", "menu", "point", "attribute", "browser", "location", "full", "complete", "define", "component", "empty", "success", "group", "output", "clone", "pwd", "resolve", "image", "close", "setTimeout", "interval", "setInterval", "hasOwnProperty", "queue", "parse", "parseInt", "static", "ajax", "toLowerCase()", "toUpperCase()", "handler", "pass", "continue", "scale", "speed", "opacity", "isArray", "import", "export", "fail", "block", "animation", "canvas", "visible", "stop", "off", "isFunction", "lang", "compile", "concat", "invoke", "iterate", "loop", "nested", "object-oriented", "parameter", "parenthesis", "bracket", "syntax", "algorithm", "dump", "interpreter", "recursion", "sandbox", "GUI", "bootstrap", "IDE", "tab", "indent", "package", "prefix", "axis", "info", "listener", "plugin", "original", "deferred", "github", "public", "foo", "bar", "scroll", "delegation", "regex", "react", "month", "year", "cursor", "valid", "unless", "reject", "accept", "helper"];
+let wordList = ["if", "else", "elsif", "each", "forEach", "map", "collect", "select", "do", "def", "end", "function", "class", "module", "html", "fetch", "css", "javascript", "js", "rails", "rake", "db:migrate", "db:seed", "generate", "find", "findBy", "c++", "python", "shotgun", "let", "const", "addEventListener", "db:rollback", "querySelector", "querySelectorAll", "methods", "config", "Gemfile", "schema", "api", "controller", "models", "serializer", "cookies", "session[:id]", "params[:id]", "embed", "while", "until", "script", "h1", "h2", "h3", "img", "src=", "href", "views", "routes", "index", "show", "update", "edit", "delete", "destroy", "new", "create", "before_action", "@user", "User.create", "Tweet.save", "Tweet.new", "@tweet", "find_user", "render", "status", "{key:value}", "[array]", "string", "integer", "boolean", "true", "false", "null", "nil", "case", "when", "switch", "params.permit", "private", "errors", "div", "body", "ul", "li", "ol", "span", "p", "br", "#id", ".class", "selectElementById", "selectElementByClass", "text-align", "font-size", "background-color", "color", "a:hover", "width", "height", "border", "position", "absolute", "fixed", "relative", "overflow", "display", "none", "hidden", "style", "margin", "padding", "has_many", "belongs_to", ":id", ":name", "attributes", "Active:Model", "inherits", "ApplicationRecord", "ActiveRecord::Base", "self", "this", "validates", "uniqueness", "length", "User.first", "Tweet.last", "i++", "Tweet.all", "t.string", "t.integer", "create_table", "change", "innerHTML", "innerText", "add", "remove", "value", "key", "hash", "seeds", "install", "gem", "debugger", "console.log", "binding.pry", "typeof", "default", "event", "whitelist", "blacklist", "meta", "head", "iframe", "style.css", "index.html", "index.js", "index.erb", "show.erb", "edit.erb", "git", "branch", "checkout", "resources", "charset", "label", "input", "reset()", "%", "keypress", "localhost:3000", "http://", "https://", ".com", "cd", "touch", "mkdir", "bundle", "exec", "master", "commit", "-m", "push", "pull", "merge", "name=", "type=", "title", "authentication", "authorization", ".then", "dataset.id", "res.json()", "response", "res", "e.target", "event.target", "DOMContentLoaded", "click", "hover", "keyup", "keydown", "className", "button", "parentNode", "parentElement", "document", "data", "append", "prepend", "content", "createElement", "method:", "POST", "UPDATE", "DELETE", "GET", "Content-Type", "application/json", "headers:", "body:", "JSON.stringify", "e.preventDefault()", "only:", "except:", ":products", ":comments", ":seller", "@product", "@comment", "@seller", "form_for", "form_tag", "item", "action:", "dependent:", ":destroy", "through:", "join", "table", "open", "force:", ":cascade", "name:", "require", "sort", ":adapter", ":database", "sqlite", "sql", "postgresql", "json-server", "Rack::Response", "path.match", "resp.status", "resp.write", "resp.finish", "flash[:error]", "errors.full_messages", "redirect_to", "_form", "f.label", "f.text_field", "f.number_field", "f.collection_select", "f.submit", "form_tag", "label_tag", "text_field_tag", ":search", "submit_tag", "button_to", "new_user_path", "users_path", "edit_user_path", "style=", "color:red", "initialize", "attr_accessor", "attr_writer", "attr_reader", "scrolling", "(title)", "@@artists", "self.count", "self.all", "self.all.clear", "@@all", "downcase", "upcase", "gsub", "add_song", "require_relative", "student.rb", "teacher.rb", "link", "href", "options", "prototype", "jQuery", "elem", "node", "on", "be", "callback", "obj", "undefined", "NaN", "from", "not", "or", "and", "call", "args", "exports", "state", "set", "context", "scope", "arguments", "window", "test", "val", "fn", "start", "path", "top", "bottom", "left", "right", "Math", "random", "url", "offset", "child", "parent", "settings", "source", "code", "property", "line", "replace", "extend", "done", "instance", "container", "row", "column", "date", "time", "log", "range", "bind", "trigger", "catch", "max", "min", "filter", "list", "try", "token", "constructor", "Number", "promise", "indexOf", "slice", "assert", "dom", "base", "format", "disabled", "check", "editor", "any", "selected", "angular", "direct", "split", "after", "init", "root", "change", "process", "page", "load", "reload()", "equal", "==", "!=", "===", "frameborder", "autoplay", "template", "tag", "version", "global", "variable", "removeClass", "menu", "point", "attribute", "browser", "location", "full", "complete", "define", "component", "empty", "success", "group", "output", "clone", "pwd", "resolve", "image", "close", "setTimeout", "interval", "setInterval", "hasOwnProperty", "queue", "parse", "parseInt", "static", "ajax", "toLowerCase()", "toUpperCase()", "handler", "pass", "continue", "scale", "speed", "opacity", "isArray", "import", "export", "fail", "block", "animation", "canvas", "visible", "stop", "off", "isFunction", "lang", "compile", "concat", "invoke", "iterate", "loop", "nested", "object-oriented", "parameter", "parenthesis", "bracket", "syntax", "algorithm", "dump", "interpreter", "recursion", "sandbox", "GUI", "bootstrap", "IDE", "tab", "indent", "package", "prefix", "axis", "info", "listener", "plugin", "original", "deferred", "github", "public", "foo", "bar", "scroll", "delegation", "regex", "react", "month", "year", "cursor", "valid", "unless", "reject", "accept", "helper"];
 
 //////////////////////////////////////////
 
@@ -251,36 +251,66 @@ function restartTest() {
 ///////// Let's fetch ///////////
 /////////////////////////////////
 
-function showSubmitName() {
-  let typeSection = document.querySelector("#type-section")
-  let typeBox = document.querySelector("#typebox")
-  let timer = document.querySelector("#timer")
-  let nameForm = document.createElement("FORM")
+var showSubmitName = (function() {
+  var executed = false;
+  return function() {
+    if (!executed) {
+      executed = true;
 
-  // hide previous input box and timer
-  typeBox.style.display = "none"
-  timer.style.display = "none"
+      let typeSection = document.querySelector("#type-section")
+      let typeBox = document.querySelector("#typebox")
+      let timer = document.querySelector("#timer")
+      let nameForm = document.createElement("FORM")
 
-  // show input name form with submit
-  nameForm.id = "nameform"
-  nameForm.innerHTML = "<input id='namebox' name='namebox' type='text' tabindex='1' value='' placeholder='Your name'><input id='submit-name' type='submit' value='Submit'>"
-  typeSection.prepend(nameForm)
+      // hide previous input box and timer
+      typeBox.style.display = "none"
+      timer.style.display = "none"
 
-  nameForm.addEventListener("submit", (e) => findUser(e))
-}
+      // show input name form with submit
+      nameForm.id = "nameform"
+      nameForm.innerHTML = "<input id='namebox' name='namebox' type='text' tabindex='1' value='' placeholder='Your name'><input id='submit-name' type='submit' value='Submit'>"
+      typeSection.prepend(nameForm)
 
-function findUser(e) {
+      nameForm.addEventListener("submit", (e) => preventFormReload(e))
+
+    }
+  }
+})()
+
+function preventFormReload(e) {
   e.preventDefault()
-
-  // GET users and iterate
-    // if user exists, post score to user
-    // else create user, then post score to user
-  fetch("http://localhost:3000/api/v1/users")
-  .then(data => data.json())
-  .then(users => loopUsers(users))
+  findUser()
 }
 
-function loopUsers(users) {
+var findUser = (function() {
+  var executed = false;
+  return function() {
+    if (!executed) {
+      executed = true;
+
+      // GET users and iterate
+        // if user exists, post score to user
+        // else create user, then post score to user
+      fetch("http://localhost:3000/api/v1/users")
+      .then(data => data.json())
+      .then(users => iterateUsers(users))
+
+    }
+  }
+})()
+
+// function findUser(e) {
+//   e.preventDefault()
+//
+//   // GET users and iterate
+//     // if user exists, post score to user
+//     // else create user, then post score to user
+//   fetch("http://localhost:3000/api/v1/users")
+//   .then(data => data.json())
+//   .then(users => iterateUsers(users))
+// }
+
+function iterateUsers(users) {
   let nameBox = document.querySelector("#namebox")
   let names = []
   users.forEach(user => {
@@ -350,6 +380,7 @@ function getScores() {
   fetch("http://localhost:3000/api/v1/scores")
   .then(data => data.json())
   .then(scores => topFiveScores(scores))
+  .then(console.log("got new scores from database"))
 }
 
 function topFiveScores(scores) {
@@ -452,25 +483,46 @@ function showOnLeaderboard(topFiveUsers) {
   thirdTd.innerText = thirdPlace
   fourthTd.innerText = fourthPlace
   fifthTd.innerText = fifthPlace
+
+  getComments()
 }
 
-//
-// function topFiveUserIds(scores, topFiveScores) {
-//   let topFiveUserIds = []
-//
-//   topFiveScores.forEach(score => {
-//     scores.forEach(s => {
-//       if (score === s.score) {
-//         topFiveUserIds.push(s.user_id)
-//       }
-//     })
-//   })
-//
-//   console.log(topFiveUserIds)
+function getComments() {
+  fetch("http://localhost:3000/api/v1/comments")
+  .then(data => data.json())
+  .then(comments => loadComments(comments))
+}
 
-  // scores.forEach(score => {
-  //   if (score.score === topFiveScores[0]) {
-  //     topFiveUserIds.push(score.user_id)
-  //   }
-  // })
-// }
+function loadComments(comments) {
+  const typeSection = document.querySelector("#type-section")
+  const commentUl = document.createElement("UL")
+  commentUl.id = "comment-section"
+  typeSection.append(commentUl)
+
+  comments.forEach(comment => {
+    let commentLi = document.createElement("LI")
+    commentLi.className = "comment"
+    commentLi.innerHTML = `<strong><span>${comment.user_id}</span></strong>: ${comment.content}`
+    commentUl.append(commentLi)
+  })
+
+  getUsersForNames()
+}
+
+function getUsersForNames() {
+  fetch("http://localhost:3000/api/v1/users")
+  .then(data => data.json())
+  .then(users => matchIdsWithNames(users))
+}
+
+function matchIdsWithNames(users) {
+  let idsSpanList = document.querySelectorAll(".comment span")
+
+  idsSpanList.forEach(span => {
+    users.forEach(user => {
+      if (parseInt(span.innerText) === user.id) {
+        span.innerText = user.name
+      }
+    })
+  })
+}
