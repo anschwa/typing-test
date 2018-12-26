@@ -506,6 +506,7 @@ function appendComment(comment) {
 
   let commentLi = document.createElement("LI")
   commentLi.className = "comment"
+  commentLi.dataset.id = comment.id
   commentLi.innerHTML = `<strong><span id=${comment.user_id}>${comment.user_id}</span></strong>: ${comment.content}`
   commentUl.append(commentLi)
 
@@ -535,7 +536,7 @@ function showSubmitComment() {
   const commentForm = document.createElement("FORM")
 
   commentForm.id = "commentform"
-  commentForm.innerHTML = "<input id='commentbox' name='commentbox' type='text' tabindex='1' value='' placeholder='Your comment'><input id='submit-comment' type='submit' value='Submit'>"
+  commentForm.innerHTML = "<input id='commentbox' name='commentbox' type='text' tabindex='1' value='' placeholder='Your comment'><input id='submit-comment' type='submit' value='Enter'>"
   commentSection.append(commentForm)
 
   commentForm.addEventListener("submit", (e) => postComment(e))
@@ -559,6 +560,40 @@ function postComment(e) {
     })
   }).then(console.log("posted to comments database"))
   .then(data => data.json())
-  .then(comment => appendComment(comment))
+  .then(comment => appendCommentWithButtons(comment))
   .then(document.querySelector("#commentform").reset())
+}
+
+function appendCommentWithButtons(comment) {
+
+  let commentUl = document.querySelector("#comment-ul")
+
+  let commentLi = document.createElement("LI")
+  commentLi.className = "comment"
+  commentLi.dataset.id = comment.id
+  commentLi.innerHTML = `<strong><span id=${comment.user_id}>${comment.user_id}</span></strong>: ${comment.content}`
+  commentUl.append(commentLi)
+
+  const deleteButton = document.createElement("BUTTON")
+  deleteButton.className = "delete-button"
+  deleteButton.innerText = "X"
+  commentLi.prepend(deleteButton)
+
+  const editButton = document.createElement("BUTTON")
+  editButton.className = "edit-button"
+  editButton.innerText = "edit"
+  commentLi.append(editButton)
+
+  getUsersForNames()
+
+  deleteButton.addEventListener("click", (e) => deleteComment(e))
+}
+
+function deleteComment(e) {
+  let commentId = e.target.parentNode.dataset.id
+
+  fetch(`http://localhost:3000/api/v1/comments/${commentId}`, {
+    method: "DELETE"
+  }).then(e.target.parentNode.remove())
+    .then(console.log("deleted from comments database"))
 }

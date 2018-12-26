@@ -225,3 +225,13 @@ footer a {
 
 .incorrect-word-bg {
   background-color: #e50000; }
+
+.delete-button {
+  margin-right: 5px;
+  padding: 2px;
+}
+
+.edit-button {
+  margin-left: 5px;
+  padding: 2px;
+}
