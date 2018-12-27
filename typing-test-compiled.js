@@ -507,7 +507,8 @@ function appendComment(comment) {
   let commentLi = document.createElement("LI")
   commentLi.className = "comment"
   commentLi.dataset.id = comment.id
-  commentLi.innerHTML = `<strong><span id=${comment.user_id}>${comment.user_id}</span></strong>: ${comment.content}`
+  commentLi.tabindex = "1"
+  commentLi.innerHTML = `<strong><span id=${comment.user_id}>${comment.user_id}</span></strong>: <span class="content">${comment.content}</span>`
   commentUl.append(commentLi)
 
   getUsersForNames()
@@ -571,7 +572,8 @@ function appendCommentWithButtons(comment) {
   let commentLi = document.createElement("LI")
   commentLi.className = "comment"
   commentLi.dataset.id = comment.id
-  commentLi.innerHTML = `<strong><span id=${comment.user_id}>${comment.user_id}</span></strong>: ${comment.content}`
+  commentLi.tabindex = "1"
+  commentLi.innerHTML = `<strong><span id=${comment.user_id}>${comment.user_id}</span></strong>: <span class="content">${comment.content}</span>`
   commentUl.append(commentLi)
 
   const deleteButton = document.createElement("BUTTON")
@@ -587,6 +589,7 @@ function appendCommentWithButtons(comment) {
   getUsersForNames()
 
   deleteButton.addEventListener("click", (e) => deleteComment(e))
+  editButton.addEventListener("click", (e) => prepareUpdateComment(e))
 }
 
 function deleteComment(e) {
@@ -596,4 +599,105 @@ function deleteComment(e) {
     method: "DELETE"
   }).then(e.target.parentNode.remove())
     .then(console.log("deleted from comments database"))
+    .then(toggleToPostCommentForm())
+}
+
+function prepareUpdateComment(e) {
+  const commentSection = document.querySelector("#comment-section")
+  let originalContent = e.target.parentNode.querySelector(".content").innerText
+  let editButton = e.target
+  let cancelButton = document.createElement("BUTTON")
+  cancelButton.className = "cancel-button"
+  cancelButton.innerText = "cancel"
+  e.target.parentNode.append(cancelButton)
+  editButton.style.display = "none"
+  cancelButton.addEventListener("click", (e) => toggleToEditButton(e))
+
+  let commentForm = document.querySelector("#commentform")
+  commentForm.style.display = "none"
+
+  if (document.querySelector("#editcommentform")) {
+    toggleToEditCommentForm()
+  } else {
+    let commentId = parseInt(e.target.parentNode.dataset.id)
+    let editCommentForm = document.createElement("FORM")
+    editCommentForm.dataset.id = commentId
+    editCommentForm.id = "editcommentform"
+    editCommentForm.innerHTML = `<input id='editcommentbox' name='editcommentbox' type='text' tabindex='1' value="${originalContent}" placeholder='Edit your comment'><input id='submit-edit-comment' type='submit' value='Update'>`
+    commentSection.append(editCommentForm)
+
+    editCommentForm.addEventListener("submit", (e) => {
+      updateComment(e)
+      toggleToEditButton(e)
+    })
+  }
+}
+
+function updateComment(e) {
+  e.preventDefault()
+
+  let commentId = parseInt(e.target.dataset.id)
+  let content = document.querySelector("#editcommentbox").value
+
+  fetch(`http://localhost:3000/api/v1/comments/${commentId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify({
+      content: content
+    })
+  }).then(console.log("patched to comments database"))
+  .then(data => data.json())
+  .then(comment => {changeCommentInDom(comment)})
+}
+
+function changeCommentInDom(comment) {
+  let allCommentLis = document.querySelectorAll(".comment")
+
+  allCommentLis.forEach(li => {
+    if (parseInt(li.dataset.id) === comment.id) {
+      li.querySelector(".content").innerText = comment.content
+      let allCancelButtons = li.querySelectorAll(".cancel-button")
+      allCancelButtons[allCancelButtons.length-1].style.display = "none"
+    }
+  })
+}
+
+function toggleToEditButton(e) {
+  let cancelButton = e.target
+  cancelButton.style.display = "none"
+
+  let editButton = e.target.parentNode.querySelector(".edit-button")
+  editButton.style.display = "inline-block"
+
+  toggleToPostCommentForm()
+  // commentForm.addEventListener("submit", (e) => postComment(e))
+}
+
+function toggleToCancelButton(e) {
+  let editButton = e.target.parentNode.querySelector(".edit-button")
+  editButton.style.display = "none"
+
+  let cancelButton = e.target
+  cancelButton.style.display = "inline-block"
+
+  toggleToEditCommentForm()
+}
+
+function toggleToPostCommentForm() {
+  const commentForm = document.querySelector("#commentform")
+  commentForm.style.display = "block"
+
+  const editCommentForm = document.querySelector("#editcommentform")
+  editCommentForm.style.display = "none"
+}
+
+function toggleToEditCommentForm() {
+  const editCommentForm = document.querySelector("#editcommentform")
+  editCommentForm.style.display = "block"
+
+  const commentForm = document.querySelector("#commentform")
+  commentForm.style.display = "none"
 }
