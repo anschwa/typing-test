@@ -442,9 +442,11 @@ function getUsers(topFiveScores) {
 function topFiveUsers(users,topFiveScores) {
   let usersArray = []
 
-  topFiveScores.forEach(score => {
-    users.forEach(user => {
-      user.scores.forEach(s => {
+  let topUniqueScores = [...(new Set(topFiveScores))]
+
+  topUniqueScores.find(score => {
+    users.find(user => {
+      user.scores.find(s => {
         if (s.score === score) {
           usersArray.push(user.name)
         }
