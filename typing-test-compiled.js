@@ -530,6 +530,8 @@ function matchIdsWithNames(users) {
       }
     })
   })
+
+  updateListSelection()
 }
 
 function showSubmitComment() {
@@ -701,3 +703,15 @@ function toggleToEditCommentForm() {
   const commentForm = document.querySelector("#commentform")
   commentForm.style.display = "none"
 }
+
+function updateListSelection() {
+  let allLis = document.querySelectorAll(".comment")
+  let lastLi = allLis[allLis.length-1]
+  lastLi.id = "last-li"
+  lastLiId = lastLi.id
+
+  var list = document.getElementById("comment-ul"),
+      targetLi = document.getElementById(lastLiId); // id tag of the <li> element
+
+  list.scrollTop = (targetLi.offsetTop - 50);
+};
