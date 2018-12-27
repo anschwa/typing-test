@@ -3,7 +3,7 @@
 #+DATE: December 25, 2018
 
 * Description
-Test how fast you can code with common programming keywords and compete with other users.
+Test how fast you can code with common programming keywords and see how you fare with other users complete with comments feature.
 Backend built with [[https://github.com/robertchen234/CodeCodeRevolution-backend][Ruby on Rails]] with [[https://www.postgresql.org/][Postgres]] database.
 
 A simple HTML5 typing test webapp written with [[http://www.ecma-international.org/ecma-262/6.0/][ECMAScript 2015]],
@@ -16,6 +16,7 @@ Inspired by
 * Screenshots
 [[file:/screenshots/test.png]]
 [[file:/screenshots/results.png]]
+[[file:/screenshots/leaderboard.png]]
 * Developing
 Execute
 #+BEGIN_SRC sh
