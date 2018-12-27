@@ -213,6 +213,10 @@ footer a {
   height: 100%;
 }
 
+#word-section {
+  background-color: black;
+}
+
 .magic-box {
   position: fixed;
   width: inherit;

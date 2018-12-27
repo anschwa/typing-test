@@ -48,6 +48,7 @@ function shuffle(array) {
 function addWords() {
     // clear existing word-section
     let wordSection = $("#word-section")[0];
+    wordSection.style.backgroundColor = "white";
     wordSection.innerHTML = "";
     $("#typebox")[0].value = "";
 
