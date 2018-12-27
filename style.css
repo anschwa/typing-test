@@ -52,7 +52,7 @@ section {
 }
 
 #ccr {
-  font: 300 50px/1 Alegreya Sans, monospace;
+  font: 300 65px/1 Alegreya Sans, monospace;
 }
 
 #word-section {
@@ -259,8 +259,7 @@ footer a {
   padding: 2px;
 }
 
-/* challenge accepted */
-
+/* lightning thunder */
 
 .page-thunder-to-text {
 	position: absolute;
@@ -271,7 +270,7 @@ footer a {
   left: 0;
   z-index: -99;
   background-color: black;
-  opacity: 0.3;
+  opacity: 0.5;
 
   canvas {
     position: relative;
@@ -287,7 +286,6 @@ footer a {
 		bottom: 50px;
 		left: 0;
 		right: 0;
-		display: none;
 		outline: none;
 		background-color: rgba(38, 50, 56, 0);
 		color: #000;
@@ -309,4 +307,44 @@ footer a {
 			color: rgba(#ffffff, 0.0);
 		}
 	}
+}
+
+#input {
+  opacity: 0;
+}
+
+/* flash */
+
+.area {
+  text-align: center;
+  font-size: 6.5em;
+  color: #fff;
+  letter-spacing: -7px;
+  font-weight: 700;
+  text-transform: uppercase;
+  animation: blur .75s ease-out infinite;
+  text-shadow: 0px 0px 5px #fff, 0px 0px 7px #fff;
+}
+
+@keyframes blur {
+  from {
+    text-shadow:0px 0px 10px rgba(25, 181, 254, 1),
+      0px 0px 10px rgba(25, 181, 254, 1),
+      0px 0px 25px rgba(25, 181, 254, 1),
+      0px 0px 25px rgba(25, 181, 254, 1),
+      0px 0px 25px rgba(25, 181, 254, 1),
+      0px 0px 25px rgba(25, 181, 254, 1),
+      0px 0px 25px rgba(25, 181, 254, 1),
+      0px 0px 25px rgba(25, 181, 254, 1),
+      0px 0px 50px rgba(25, 181, 254, 1),
+      0px 0px 50px rgba(25, 181, 254, 1),
+      0px 0px 50px #7B96B8,
+      0px 0px 150px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px 10px 100px #7B96B8,
+      0px -10px 100px #7B96B8,
+      0px -10px 100px #7B96B8;
+  }
 }

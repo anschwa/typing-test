@@ -441,43 +441,26 @@ function getUsers(topFiveScores) {
 }
 
 function topFiveUsers(users,topFiveScores) {
-  let usersArray = []
 
   let topUniqueScores = [...(new Set(topFiveScores))]
-
-  topUniqueScores.find(score => {
-    users.find(user => {
-      user.scores.find(s => {
-        if (s.score === score) {
-          usersArray.push(user.name)
-        }
-      })
-    })
-  })
-
-  let topFiveUsers = usersArray.slice(0,5)
-
-  showOnLeaderboard(topFiveUsers)
-}
-
-function showOnLeaderboard(topFiveUsers) {
   let firstTd = document.querySelector("#first")
   let secondTd = document.querySelector("#second")
   let thirdTd = document.querySelector("#third")
   let fourthTd = document.querySelector("#fourth")
   let fifthTd = document.querySelector("#fifth")
+  let tdArray = [firstTd, secondTd, thirdTd, fourthTd, fifthTd]
+  let i = 0
 
-  let firstPlace = topFiveUsers[0]
-  let secondPlace = topFiveUsers[1]
-  let thirdPlace = topFiveUsers[2]
-  let fourthPlace = topFiveUsers[3]
-  let fifthPlace = topFiveUsers[4]
-
-  firstTd.innerText = firstPlace
-  secondTd.innerText = secondPlace
-  thirdTd.innerText = thirdPlace
-  fourthTd.innerText = fourthPlace
-  fifthTd.innerText = fifthPlace
+  topUniqueScores.find(score => {
+    users.find(user => {
+      user.scores.find(s => {
+        if (s.score === score) {
+          tdArray[i].innerText = user.name
+          i++
+        }
+      })
+    })
+  })
 
   getComments()
 }
@@ -719,7 +702,7 @@ function updateListSelection() {
   list.scrollTop = (targetLi.offsetTop - 50);
 };
 
-// challenge accepted
+// lightning thunder
 
 let canvas, ctx, w, h, thunder, text, particles, input;
 
@@ -727,7 +710,7 @@ function Thunder(options) {
     options = options || {};
     this.lifespan = options.lifespan || Math.round(Math.random() * 10 + 10);
     this.maxlife = this.lifespan;
-    this.color = options.color || '#fefefe';
+    this.color = options.color || 'rgba(25, 181, 254, 1)';
     this.glow = options.glow || '#2323fe';
     this.x = options.x || Math.random() * w;
     this.y = options.y || Math.random() * h;
@@ -768,11 +751,11 @@ function Thunder(options) {
         ctx.shadowBlur = 0;
         const strength = Math.random() * 80 + 40;
         const light = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, strength);
-        light.addColorStop(0, 'rgba(250, 200, 50, 1)');
-        light.addColorStop(0.1, 'rgba(250, 200, 50, 0.4)');
-        light.addColorStop(0.4, 'rgba(250, 200, 50, 0.12)');
-        light.addColorStop(0.65, 'rgba(250, 200, 50, 0.02)');
-        light.addColorStop(0.8, 'rgba(250, 200, 50, 0)');
+        light.addColorStop(0, 'rgba(75, 119, 190, 0)');
+        light.addColorStop(0.1, 'rgba(65, 131, 215, .02)');
+        light.addColorStop(0.4, 'rgba(52, 152, 219, .12)');
+        light.addColorStop(0.65, 'rgba(34, 167, 240, 0.4)');
+        light.addColorStop(0.8, 'rgba(25, 181, 254, 1)');
         ctx.beginPath();
         ctx.fillStyle = light;
         ctx.arc(this.x, this.y, strength, 0, Math.PI * 2);
@@ -852,7 +835,7 @@ function Text(options) {
 
     this.size = options.size || 100;
     this.copy = (options.copy || `Hello!`) + ' ';
-    this.color = options.color || '#cd96fe';
+    this.color = options.color || 'rgba(25, 181, 254, 1)';
     this.delay = options.delay || 5;
     this.basedelay = this.delay;
     buffer.font = `${this.size}px Comic Sans MS`;
