@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300');
+
 /************************************************/
 /* Color Pallet */
 /* Base Colors */
@@ -48,7 +51,12 @@ section {
   opacity: 0.7;
 }
 
+#ccr {
+  font: 300 50px/1 Alegreya Sans, monospace;
+}
+
 #word-section {
+  background-color: black;
   font-size: 1.5em;
   height: 4em;
   line-height: 2em;
@@ -213,10 +221,6 @@ footer a {
   height: 100%;
 }
 
-#word-section {
-  background-color: black;
-}
-
 .magic-box {
   position: fixed;
   width: inherit;
@@ -285,8 +289,8 @@ footer a {
 		right: 0;
 		display: none;
 		outline: none;
-		background-color: rgba(38, 50, 56, 0.2);
-		color: #ffffff;
+		background-color: rgba(38, 50, 56, 0);
+		color: #000;
 		border: none;
 		width: 50%;
 		min-width: 500px;
@@ -298,11 +302,11 @@ footer a {
 		padding: 0 20px;
 
 		&:hover, &:focus {
-			border: 1px solid rgba(38, 50, 56, 0.6);
+			border: 1px solid rgba(38, 50, 56, 0.0);
 		}
 
 		&::-webkit-input-placeholder {
-			color: rgba(#ffffff, 0.1);
+			color: rgba(#ffffff, 0.0);
 		}
 	}
 }
