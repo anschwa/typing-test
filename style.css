@@ -45,7 +45,7 @@ section {
   padding: 15px;
   border-radius: 15px;
   background-color: black;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 #word-section {
@@ -196,14 +196,14 @@ footer a {
 /* hides small bit of residule text after scrolling */
 
 .fullscreen-bg {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        overflow: hidden;
-        z-index: -100;
-      }
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+  }
 
 .fullscreen-bg__video {
   position: absolute;
@@ -249,4 +249,56 @@ footer a {
 .cancel-button {
   margin-left: 5px;
   padding: 2px;
+}
+
+/* challenge accepted */
+
+
+.page-thunder-to-text {
+	position: absolute;
+	overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -99;
+  background-color: black;
+  opacity: 0.3;
+
+  canvas {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+		display: block;
+	}
+
+  input {
+		position: absolute;
+		bottom: 50px;
+		left: 0;
+		right: 0;
+		display: none;
+		outline: none;
+		background-color: rgba(38, 50, 56, 0.2);
+		color: #ffffff;
+		border: none;
+		width: 50%;
+		min-width: 500px;
+		max-width: 100%;
+		margin: auto;
+		height: 60px;
+		line-height: 60px;
+		font-size: 40px;
+		padding: 0 20px;
+
+		&:hover, &:focus {
+			border: 1px solid rgba(38, 50, 56, 0.6);
+		}
+
+		&::-webkit-input-placeholder {
+			color: rgba(#ffffff, 0.1);
+		}
+	}
 }
