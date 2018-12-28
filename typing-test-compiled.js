@@ -110,6 +110,7 @@ function submitWord(word) {
     // update current-word and
     // keep track of correct & incorrect words
     let current = $(".current-word")[0];
+    $("#typebox")[0].placeholder = "";
 
     if (checkWord(word)) {
         current.classList.remove("current-word");
@@ -168,6 +169,56 @@ function isTimer(seconds) {
     return true;
 }
 
+var calculateWPM = (function(data) {
+  var executed = false;
+  return function(data) {
+    if (!executed) {
+      executed = true;
+
+
+      let { seconds, correct, incorrect, total, typed } = data;
+      let min = seconds / 60;
+      let wpm = Math.ceil(typed / 5 - incorrect / min);
+      let accuracy = Math.ceil(correct / total * 100);
+      let score = wpm * accuracy * 100;
+      let scoreComma = (score).toLocaleString('en');
+
+      if (wpm < 0) {
+          wpm = 0;
+      } // prevent negative wpm from incorrect words
+
+      // template strings are pretty cool
+      let results = `<ul id="results">
+          <li>WPM: <span class="wpm-value">${wpm}</span></li>
+          <li>Accuracy: <span class="wpm-value">${accuracy}%</span></li>
+          <li id="results-stats">
+          Total Words: <span>${total}</span> |
+          Correct Words: <span>${correct}</span> |
+          Incorrect Words: <span>${incorrect}</span> |
+          Characters Typed: <span>${typed}</span>
+          </li>
+          </ul>`;
+
+      $("#ccr")[0].innerText = `Score: ${scoreComma}`;
+      $("#word-section")[0].innerHTML = results;
+
+      // start fetch
+      showSubmitName()
+
+      // color code accuracy
+      let wpmClass = $("li:nth-child(2) .wpm-value")[0].classList;
+      if (accuracy > 80) {
+          wpmClass.add("correct-word-c");
+      } else {
+          wpmClass.add("incorrect-word-c");
+      }
+
+      console.log(wordData);
+
+    }
+  }
+})()
+
 function calculateWPM(data) {
     let { seconds, correct, incorrect, total, typed } = data;
     let min = seconds / 60;
@@ -212,6 +263,7 @@ function calculateWPM(data) {
 function typingTest(e) {
     // Char:        Key Code:
     // <space>      32
+    // <enter>      13
     // <backspace>  8
     // <shift>      16
     // [A-Z]        65-90
@@ -920,7 +972,7 @@ function render() {
     text = new Text({
         copy: 'Code Code Revolution'
     });
-    canvas.addEventListener('click', (e) => {
+    document.addEventListener('click', (e) => {
         const x = e.clientX;
         const y = e.clientY;
         thunder.push(new Thunder({
