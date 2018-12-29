@@ -657,7 +657,7 @@ function prepareUpdateComment(e) {
   commentForm.style.display = "none"
 
   if (document.querySelector("#editcommentform")) {
-    toggleToEditCommentForm()
+    toggleToEditCommentForm(e)
   } else {
     let commentId = parseInt(e.target.parentNode.dataset.id)
     let editCommentForm = document.createElement("FORM")
@@ -665,7 +665,7 @@ function prepareUpdateComment(e) {
     editCommentForm.id = "editcommentform"
     editCommentForm.innerHTML = `<input id='editcommentbox' name='editcommentbox' type='text' tabindex='1' value="${originalContent}" placeholder='Edit your comment'><input id='submit-edit-comment' type='submit' value='Update'>`
     commentSection.append(editCommentForm)
-
+    debugger
     editCommentForm.addEventListener("submit", (e) => {
       updateComment(e)
       toggleToEditButton(e)
@@ -723,7 +723,7 @@ function toggleToCancelButton(e) {
   let cancelButton = e.target
   cancelButton.style.display = "inline-block"
 
-  toggleToEditCommentForm()
+  toggleToEditCommentForm(e)
 }
 
 function toggleToPostCommentForm() {
@@ -734,9 +734,11 @@ function toggleToPostCommentForm() {
   editCommentForm.style.display = "none"
 }
 
-function toggleToEditCommentForm() {
+function toggleToEditCommentForm(e) {
   const editCommentForm = document.querySelector("#editcommentform")
   editCommentForm.style.display = "block"
+  let originalContent = e.target.parentNode.querySelector(".content").innerText
+  editCommentForm.innerHTML = `<input id='editcommentbox' name='editcommentbox' type='text' tabindex='1' value="${originalContent}" placeholder='Edit your comment'><input id='submit-edit-comment' type='submit' value='Update'>`
 
   const commentForm = document.querySelector("#commentform")
   commentForm.style.display = "none"
@@ -972,7 +974,7 @@ function render() {
     text = new Text({
         copy: 'Code Code Revolution'
     });
-    document.addEventListener('click', (e) => {
+    document.addEventListener('mousemove', (e) => {
         const x = e.clientX;
         const y = e.clientY;
         thunder.push(new Thunder({
