@@ -166,6 +166,9 @@ section {
 
 #leaderboard {
   color: white;
+  height: 8em;
+  overflow: scroll;
+  overflow-x: hidden;
   text-align: left;
   padding-right: 25px; }
   #leaderboard td {

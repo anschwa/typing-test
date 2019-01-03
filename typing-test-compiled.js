@@ -418,30 +418,33 @@ function postScore(user) {
       characters_typed: characters_typed
     })
   }).then(console.log("posted to scores database"))
-  .then(getScores())
+  .then(getScores)
 }
 
 function getScores() {
   fetch("http://localhost:3000/api/v1/scores")
   .then(data => data.json())
-  .then(scores => topFiveScores(scores))
+  .then(scores => sortScores(scores))
   .then(console.log("got new scores from database"))
 }
 
-function topFiveScores(scores) {
+function sortScores(scores) {
   let scoresArray = []
   scores.forEach(score => {
-    scoresArray.push(score.score)
+    scoresArray.push(score)
   })
 
-  scoresArray.sort((a, b) => b - a)
+  scoresArray.sort(function(a, b) {
+    return a.score-b.score
+  })
 
-  let topFiveScores = scoresArray.slice(0,5)
+  debugger
 
-  showLeaderBoard(topFiveScores)
+  showLeaderBoard()
+  showScores(scoresArray)
 }
 
-function showLeaderBoard(topFiveScores) {
+function showLeaderBoard() {
   const ccr = document.querySelector("#ccr")
   const typeSection = document.querySelector("#type-section")
   const wordSection = document.querySelector("#word-section")
@@ -451,70 +454,24 @@ function showLeaderBoard(topFiveScores) {
   wordSection.style.display = "none"
   nameForm.style.display = "none"
 
-  let firstScore = topFiveScores[0]
-  let secondScore = topFiveScores[1]
-  let thirdScore = topFiveScores[2]
-  let fourthScore = topFiveScores[3]
-  let fifthScore = topFiveScores[4]
-
   let leaderBoard = document.createElement("TABLE")
   leaderBoard.id = "leaderboard"
-  leaderBoard.innerHTML = `
-  <tr>
-    <td id="first"></td>
-    <td>${firstScore}</td>
-  </tr>
-  <tr>
-    <td id="second"></td>
-    <td>${secondScore}</td>
-  </tr>
-  <tr>
-    <td id="third"></td>
-    <td>${thirdScore}</td>
-  </tr>
-  <tr>
-    <td id="fourth"></td>
-    <td>${fourthScore}</td>
-  </tr>
-  <tr>
-    <td id="fifth"></td>
-    <td>${fifthScore}</td>
-  </tr>`
-
   typeSection.prepend(leaderBoard)
 
-  getUsers(topFiveScores)
-}
-
-function getUsers(topFiveScores) {
-  fetch("http://localhost:3000/api/v1/users")
-  .then(data => data.json())
-  .then(users => topFiveUsers(users, topFiveScores))
-}
-
-function topFiveUsers(users,topFiveScores) {
-
-  let topUniqueScores = [...(new Set(topFiveScores))]
-  let firstTd = document.querySelector("#first")
-  let secondTd = document.querySelector("#second")
-  let thirdTd = document.querySelector("#third")
-  let fourthTd = document.querySelector("#fourth")
-  let fifthTd = document.querySelector("#fifth")
-  let tdArray = [firstTd, secondTd, thirdTd, fourthTd, fifthTd]
-  let i = 0
-
-  topUniqueScores.find(score => {
-    users.find(user => {
-      user.scores.find(s => {
-        if (s.score === score) {
-          tdArray[i].innerText = user.name
-          i++
-        }
-      })
-    })
-  })
-
   getComments()
+}
+
+function showScores(scoresArray) {
+  let leaderBoard = document.querySelector("#leaderboard")
+  let i = scoresArray.length
+  scoresArray.forEach(score => {
+    const tr = document.createElement("TR")
+    tr.innerHTML =
+      `<td class="count">${i--}.</td>
+      <td class="name">${score.user.name}</td>
+      <td class="score">${score.score}</td>`
+    leaderBoard.prepend(tr)
+  })
 }
 
 function getComments() {
