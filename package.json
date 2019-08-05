@@ -3,11 +3,11 @@
   "version": "1.1.0",
   "description": "html5 typing test",
   "main": "typing-test.js",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "babel-cli": "^6.26.0",
     "sass": "^1.22.9"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "./server.py",
     "test": "echo \"Error: no test specified\" && exit 1"
