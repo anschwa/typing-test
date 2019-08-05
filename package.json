@@ -1,0 +1,28 @@
+{
+  "name": "typing-test",
+  "version": "1.1.0",
+  "description": "html5 typing test",
+  "main": "typing-test.js",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "sass": "^1.22.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "./server.py",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anschwa/typing-test.git"
+  },
+  "keywords": [
+    "typing-test"
+  ],
+  "author": "Adam Schwartz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anschwa/typing-test/issues"
+  },
+  "homepage": "https://github.com/anschwa/typing-test#readme"
+}

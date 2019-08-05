@@ -4,10 +4,10 @@ window.$ = document.querySelectorAll.bind(document);
 // Changes for  Firefox
 if (navigator.userAgent.match(/firefox/i)) {
     // Unicode font sizes
-    let ffBtn = "font-weight: normal; font-size: 2em; margin-left: 0.3em;";
+    let ffBtn = "font-weight: normal; font-size: 1em; margin-left: 0.1em;";
     $("#restart-symbol")[0].setAttribute("style", ffBtn);
 
-    let ffwait = "line-height: 1em; font-size: 4em;";
+    let ffwait = "line-height: 2em; font-size: 2em;";
     $(".waiting")[0].setAttribute("style", ffwait);
 }
 
@@ -61,7 +61,7 @@ function addWords() {
 //////////////////////////////////////////
 
 // Word Colors
-let colorCurrentWord = " #dddddd";
+let colorCurrentWord = "#dddddd";
 let colorCorrectWord = "#93C572";
 let colorIncorrectWord = "#e50000";
 
@@ -84,12 +84,18 @@ let wordData = {
 //////////////////////////////////////////
 
 function checkWord(word) {
-    let wlen = word.value.length;
+    const wlen = word.value.length;
+    const wval = word.value.trim();
     // how much we have of the current word.
     let current = $(".current-word")[0];
     let currentSubstring = current.innerHTML.substring(0, wlen);
-    // check if we have any typing errors
-    if (word.value.trim() != currentSubstring) {
+
+    // check if we have any typing errors and
+    // make sure there is a real word to check
+    // https://github.com/anschwa/typing-test/issues/2
+    const noMatch = wval !== currentSubstring;
+    const emptyWords = wval === '' || currentSubstring === '';
+    if (noMatch || emptyWords) {
         current.classList.add("incorrect-word-bg");
         return false;
     } else {
@@ -166,9 +172,10 @@ function calculateWPM(data) {
     let wpm = Math.ceil(typed / 5 - incorrect / min);
     let accuracy = Math.ceil(correct / total * 100);
 
+    // prevent negative wpm from incorrect words
     if (wpm < 0) {
         wpm = 0;
-    } // prevent negative wpm from incorrect words
+    }
 
     // template strings are pretty cool
     let results = `<ul id="results">

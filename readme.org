@@ -13,7 +13,13 @@ Inspired by [[http://10fastfingers.com/typing-test/english][10fastfingers]].
 [[file:/screenshots/test.png]]
 [[file:/screenshots/results.png]]
 * Developing
-Execute 
+Install dependencies:
+#+BEGIN_SRC sh
+  pip install livereload
+  npm install
+#+END_SRC
+
+Launch app:
 #+BEGIN_SRC sh
   python server.py
 #+END_SRC
